@@ -13,3 +13,22 @@
   <li>A group of flamingos is called a "flamboyance".</li>
   <li>Bananas are berries, but strawberries aren't!</li>
 </ul>
+<h2>Want a random fun fact?</h2>
+<button onclick="showRandomFact()">Show Me!</button>
+<p id="random-fact" style="font-weight: bold; color: darkgreen;"></p>
+
+<script>
+  const facts = [
+    "Sloths can hold their breath longer than dolphins.",
+    "Wombat poop is cube-shaped.",
+    "A shrimp’s heart is in its head.",
+    "Some cats are allergic to humans.",
+    "Sharks are older than trees.",
+    "There's a basketball court on the top floor of the US Supreme Court building."
+  ];
+
+  function showRandomFact() {
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    document.getElementById('random-fact').innerText = facts[randomIndex];
+  }
+</script>
