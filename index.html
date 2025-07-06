@@ -13,3 +13,14 @@
   <li>A group of flamingos is called a "flamboyance".</li>
   <li>Bananas are berries, but strawberries aren't!</li>
 </ul>
+<hr>
+<h2>Feeling adventurous?</h2>
+<button onclick="changeBackgroundColor()">Surprise Me!</button>
+
+<script>
+  function changeBackgroundColor() {
+    const colors = ['#f8b195', '#f67280', '#c06c84', '#6c5b7b', '#355c7d', '#ffeaa7', '#81ecec'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+  }
+</script>
