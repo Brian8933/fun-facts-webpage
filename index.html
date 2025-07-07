@@ -25,6 +25,25 @@
     document.body.style.backgroundColor = randomColor;
   }
 </script>
+<script>
+  function showRandomFact() {
+    // Show a loading message while the API fetches
+    const factElement = document.getElementById("random-fact");
+    factElement.innerText = "Loading a fun fact...";
+
+    fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
+      .then(response => response.json())
+      .then(data => {
+        factElement.innerText = data.text;
+      })
+      .catch(error => {
+        console.error("Error fetching fact:", error);
+        factElement.innerText = "Oops! Couldn't fetch a fact right now.";
+      });
+  }
+
+  // Keep your other functions here (dark mode, background, etc.)
+</script>
 
 <h2>Want a random fun fact?</h2>
 <button onclick="showRandomFact()">Show Me!</button>
