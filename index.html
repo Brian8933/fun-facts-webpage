@@ -89,11 +89,15 @@
       document.getElementById('random-fact').innerText = facts[randomIndex];
     }
   </script>
-  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-}
+</body>
+</html>
+ main
 <style>
+  body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+    font-family: sans-serif;
+  }
+
   .dark-mode {
     background-color: #121212;
     color: #f1f1f1;
@@ -102,8 +106,19 @@
   .dark-mode button {
     background-color: #333;
     color: white;
+    border: 1px solid #555;
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 1em;
+    margin: 10px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    opacity: 0.85;
   }
 </style>
-</body>
-</html>
- main
