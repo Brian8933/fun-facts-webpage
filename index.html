@@ -17,7 +17,13 @@
 <hr>
 <h2>Feeling adventurous?</h2>
 <button onclick="changeBackgroundColor()">Surprise Me!</button>
-
+<hr>
+<h3>Submit Your Own Fun Fact</h3>
+<form id="trivia-form">
+  <input type="text" id="user-fact" placeholder="Enter a fun fact..." required>
+  <button type="submit">Submit</button>
+</form>
+<p id="submission-message" style="color: green;"></p>
 <script>
   function changeBackgroundColor() {
     const colors = ['#f8b195', '#f67280', '#c06c84', '#6c5b7b', '#355c7d', '#ffeaa7', '#81ecec'];
@@ -131,6 +137,22 @@ setInterval(updateClock, 1000);
 updateClock(); // initial call
 function flipCard(card) {
   card.classList.toggle('flipped');
+  document.getElementById("trivia-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Stop page reload
+
+  const newFact = document.getElementById("user-fact").value.trim();
+  const message = document.getElementById("submission-message");
+
+  if (newFact) {
+    // Update flip card back with the new fact
+    document.getElementById("flip-fact").innerText = newFact;
+    message.innerText = "Your fun fact was added!";
+    document.getElementById("trivia-form").reset();
+  } else {
+    message.innerText = "Please enter a valid fun fact.";
+    message.style.color = "red";
+  }
+});
 }
   </script>
 </body>
@@ -213,6 +235,34 @@ function flipCard(card) {
   .flip-card-back {
     background-color: #d1f7c4;
     transform: rotateY(180deg);
+    form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #27ae60;
+}
   }
 </style>
 </style>
